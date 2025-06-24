@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Download, Mail, Phone, Github, Linkedin, ExternalLink, Menu, X } from 'lucide-react';
+import { Moon, Sun, Download, Mail, Phone, Github, Linkedin, ExternalLink, Menu, X, Code, Database, Palette, Globe, Server, Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -30,15 +30,34 @@ const Index = () => {
     }
   };
 
-  const skills = [
-    { name: 'Java', level: 90 },
-    { name: 'React.js', level: 85 },
-    { name: 'JavaScript', level: 80 },
-    { name: 'HTML/CSS', level: 90 },
-    { name: 'Git/GitHub', level: 85 },
-    { name: 'Figma', level: 75 },
-    { name: 'Python', level: 70 },
-    { name: 'Power BI', level: 65 }
+  const skillCategories = [
+    {
+      title: "Programming Languages",
+      icon: Code,
+      skills: [
+        { name: 'Java', level: 90, color: 'from-orange-500 to-red-500' },
+        { name: 'JavaScript', level: 80, color: 'from-yellow-500 to-yellow-600' },
+        { name: 'Python', level: 70, color: 'from-blue-500 to-green-500' }
+      ]
+    },
+    {
+      title: "Frontend Development",
+      icon: Globe,
+      skills: [
+        { name: 'React.js', level: 85, color: 'from-blue-400 to-blue-600' },
+        { name: 'HTML/CSS', level: 90, color: 'from-orange-400 to-pink-500' },
+        { name: 'Tailwind CSS', level: 75, color: 'from-teal-400 to-cyan-500' }
+      ]
+    },
+    {
+      title: "Tools & Design",
+      icon: Palette,
+      skills: [
+        { name: 'Git/GitHub', level: 85, color: 'from-gray-600 to-gray-800' },
+        { name: 'Figma', level: 75, color: 'from-purple-500 to-pink-500' },
+        { name: 'Power BI', level: 65, color: 'from-yellow-600 to-orange-500' }
+      ]
+    }
   ];
 
   const projects = [
@@ -245,23 +264,62 @@ const Index = () => {
               Skills & Technologies
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Here are the technologies and tools I work with
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            {skills.map((skill, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-medium text-gray-900 dark:text-white">{skill.name}</span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div 
-                    className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </div>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+            {skillCategories.map((category, categoryIndex) => (
+              <Card key={categoryIndex} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-900 border-0 shadow-lg">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <category.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
+                    {category.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="font-medium text-gray-900 dark:text-white text-sm">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400 font-semibold">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                        <div 
+                          className={`bg-gradient-to-r ${skill.color} h-2.5 rounded-full transition-all duration-1000 ease-out shadow-sm`}
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          {/* Additional Skills Tags */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+              Other Technologies
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {['Bootstrap', 'Canva', 'Shell Scripting', 'Data Structures', 'Algorithms', 'Problem Solving'].map((tech, index) => (
+                <Badge 
+                  key={index} 
+                  variant="secondary" 
+                  className="px-4 py-2 text-sm bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 dark:from-purple-900 dark:to-blue-900 dark:text-purple-200 border-0 hover:scale-105 transition-transform duration-200"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
           </div>
         </div>
       </section>
