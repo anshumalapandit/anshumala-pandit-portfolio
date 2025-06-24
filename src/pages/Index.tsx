@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Download, Mail, Phone, Github, Linkedin, ExternalLink, Menu, X, Code, Database, Palette, Globe, Server, Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -30,33 +29,54 @@ const Index = () => {
     }
   };
 
-  const skillCategories = [
+  const skills = [
     {
-      title: "Programming Languages",
-      icon: Code,
-      skills: [
-        { name: 'Java', level: 90, color: 'from-orange-500 to-red-500' },
-        { name: 'JavaScript', level: 80, color: 'from-yellow-500 to-yellow-600' },
-        { name: 'Python', level: 70, color: 'from-blue-500 to-green-500' }
-      ]
+      name: 'Java',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
     },
     {
-      title: "Frontend Development",
-      icon: Globe,
-      skills: [
-        { name: 'React.js', level: 85, color: 'from-blue-400 to-blue-600' },
-        { name: 'HTML/CSS', level: 90, color: 'from-orange-400 to-pink-500' },
-        { name: 'Tailwind CSS', level: 75, color: 'from-teal-400 to-cyan-500' }
-      ]
+      name: 'JavaScript',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
     },
     {
-      title: "Tools & Design",
-      icon: Palette,
-      skills: [
-        { name: 'Git/GitHub', level: 85, color: 'from-gray-600 to-gray-800' },
-        { name: 'Figma', level: 75, color: 'from-purple-500 to-pink-500' },
-        { name: 'Power BI', level: 65, color: 'from-yellow-600 to-orange-500' }
-      ]
+      name: 'Python',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
+    },
+    {
+      name: 'React.js',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+    },
+    {
+      name: 'HTML5',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
+    },
+    {
+      name: 'CSS3',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'
+    },
+    {
+      name: 'Tailwind CSS',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg'
+    },
+    {
+      name: 'Bootstrap',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'
+    },
+    {
+      name: 'Git',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'
+    },
+    {
+      name: 'GitHub',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+    },
+    {
+      name: 'Figma',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'
+    },
+    {
+      name: 'Canva',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg'
     }
   ];
 
@@ -265,61 +285,32 @@ const Index = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Here are the technologies and tools I work with
+              Technologies and tools I work with
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
-              <Card key={categoryIndex} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white dark:bg-gray-900 border-0 shadow-lg">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <category.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
-                    {category.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium text-gray-900 dark:text-white text-sm">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm text-gray-600 dark:text-gray-400 font-semibold">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                        <div 
-                          className={`bg-gradient-to-r ${skill.color} h-2.5 rounded-full transition-all duration-1000 ease-out shadow-sm`}
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 max-w-6xl mx-auto">
+            {skills.map((skill, index) => (
+              <div 
+                key={index} 
+                className="flex flex-col items-center group hover:scale-110 transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-20 h-20 bg-white dark:bg-gray-900 rounded-2xl shadow-lg flex items-center justify-center mb-3 group-hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                  <img 
+                    src={skill.logo} 
+                    alt={skill.name}
+                    className="w-12 h-12 object-contain"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.parentElement!.innerHTML = `<div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">${skill.name[0]}</div>`;
+                    }}
+                  />
+                </div>
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                  {skill.name}
+                </span>
+              </div>
             ))}
-          </div>
-
-          {/* Additional Skills Tags */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-              Other Technologies
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {['Bootstrap', 'Canva', 'Shell Scripting', 'Data Structures', 'Algorithms', 'Problem Solving'].map((tech, index) => (
-                <Badge 
-                  key={index} 
-                  variant="secondary" 
-                  className="px-4 py-2 text-sm bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 dark:from-purple-900 dark:to-blue-900 dark:text-purple-200 border-0 hover:scale-105 transition-transform duration-200"
-                >
-                  {tech}
-                </Badge>
-              ))}
-            </div>
           </div>
         </div>
       </section>
