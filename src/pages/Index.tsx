@@ -116,7 +116,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl bg-gradient-to-r from-slate-600 to-gray-700 bg-clip-text text-transparent">
+            <div className="font-bold text-xl bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
               Anshumala
             </div>
             
@@ -128,8 +128,8 @@ const Index = () => {
                   onClick={() => scrollToSection(item.toLowerCase())}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.toLowerCase()
-                      ? 'text-slate-600 dark:text-slate-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-slate-600 dark:hover:text-slate-400'
+                      ? 'text-[#bd1e51] dark:text-[#f1b814]'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814]'
                   }`}
                 >
                   {item}
@@ -168,7 +168,7 @@ const Index = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-slate-600 dark:hover:text-slate-400 w-full text-left"
+                  className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814] w-full text-left"
                 >
                   {item}
                 </button>
@@ -179,11 +179,11 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-gray-50 to-stone-100 dark:from-gray-900 dark:via-slate-900 dark:to-gray-800">
+      <section id="home" className="pt-16 min-h-screen flex items-center bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 dark:from-gray-900 dark:via-[#490b3d] dark:to-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-600 via-gray-700 to-stone-600 bg-clip-text text-transparent animate-fade-in">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#490b3d] via-[#bd1e51] to-[#f1b814] bg-clip-text text-transparent animate-fade-in">
                 Anshumala Vijay Pandit
               </h1>
               <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4">
@@ -195,14 +195,14 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Button 
                   onClick={() => scrollToSection('projects')}
-                  className="bg-gradient-to-r from-slate-500 to-gray-600 hover:from-slate-600 hover:to-gray-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+                  className="bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
                 >
                   View My Work
                 </Button>
                 <Button 
                   variant="outline" 
                   onClick={() => scrollToSection('contact')}
-                  className="border-slate-500 text-slate-600 hover:bg-slate-500 hover:text-white px-8 py-3 rounded-full transition-all duration-300"
+                  className="border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white px-8 py-3 rounded-full transition-all duration-300"
                 >
                   Get In Touch
                 </Button>
@@ -210,7 +210,7 @@ const Index = () => {
             </div>
             <div className="flex justify-center">
               <div className="relative">
-                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-slate-300 to-gray-400 p-1 animate-pulse">
+                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#490b3d] to-[#bd1e51] p-1 animate-pulse">
                   <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
                     <div className="text-6xl">👩‍💻</div>
                   </div>
@@ -225,10 +225,10 @@ const Index = () => {
       <section id="about" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-slate-600 to-gray-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
               About Me
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-gray-500 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -243,7 +243,7 @@ const Index = () => {
               
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Education</h3>
-                <Card className="border-l-4 border-l-slate-400">
+                <Card className="border-l-4 border-l-[#bd1e51]">
                   <CardContent className="pt-6">
                     <h4 className="font-semibold text-gray-900 dark:text-white">Computer Engineering</h4>
                     <p className="text-gray-600 dark:text-gray-400">Vishwakarma Institute of Information Technology, Pune</p>
@@ -252,7 +252,7 @@ const Index = () => {
                 </Card>
               </div>
 
-              <Button className="bg-gradient-to-r from-slate-500 to-gray-600 hover:from-slate-600 hover:to-gray-700 text-white px-6 py-2 rounded-full">
+              <Button className="bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white px-6 py-2 rounded-full">
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
               </Button>
@@ -264,7 +264,7 @@ const Index = () => {
                 {['Initiative', 'Documentation', 'Design', 'Communication'].map((skill, index) => (
                   <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="pt-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-slate-400 to-gray-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-full flex items-center justify-center mx-auto mb-3">
                         <span className="text-white font-bold">{skill[0]}</span>
                       </div>
                       <p className="font-medium text-gray-900 dark:text-white">{skill}</p>
@@ -281,10 +281,10 @@ const Index = () => {
       <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-slate-600 to-gray-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
               Skills & Technologies
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-gray-500 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Technologies and tools I work with
             </p>
@@ -296,18 +296,18 @@ const Index = () => {
                 key={index} 
                 className="flex flex-col items-center group hover:scale-110 transition-all duration-300 cursor-pointer"
               >
-                <div className="w-20 h-20 bg-white dark:bg-gray-900 rounded-2xl shadow-lg flex items-center justify-center mb-3 group-hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                <div className="w-20 h-20 bg-white dark:bg-gray-900 rounded-2xl shadow-lg flex items-center justify-center mb-3 group-hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-[#bd1e51]">
                   <img 
                     src={skill.logo} 
                     alt={skill.name}
                     className="w-12 h-12 object-contain"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `<div class="w-12 h-12 bg-gradient-to-br from-slate-400 to-gray-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">${skill.name[0]}</div>`;
+                      e.currentTarget.parentElement!.innerHTML = `<div class="w-12 h-12 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-lg flex items-center justify-center text-white font-bold text-lg">${skill.name[0]}</div>`;
                     }}
                   />
                 </div>
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors duration-300">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center group-hover:text-[#bd1e51] dark:group-hover:text-[#f1b814] transition-colors duration-300">
                   {skill.name}
                 </span>
               </div>
@@ -320,15 +320,15 @@ const Index = () => {
       <section id="projects" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-slate-600 to-gray-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
               Featured Projects
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-gray-500 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#bd1e51]">
                 <CardHeader>
                   <CardTitle className="text-gray-900 dark:text-white">{project.title}</CardTitle>
                   <CardDescription className="text-gray-600 dark:text-gray-400">
@@ -338,14 +338,14 @@ const Index = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary" className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                      <Badge key={techIndex} variant="secondary" className="bg-[#490b3d]/10 text-[#490b3d] dark:bg-[#f1b814]/20 dark:text-[#f1b814]">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   <Button 
                     variant="outline" 
-                    className="w-full border-slate-400 text-slate-600 hover:bg-slate-500 hover:text-white"
+                    className="w-full border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white"
                   >
                     <Github className="w-4 h-4 mr-2" />
                     View Code
@@ -361,17 +361,17 @@ const Index = () => {
       <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-slate-600 to-gray-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
               Services
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-gray-500 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <Card key={index} className="text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#f1b814]">
                 <CardContent className="pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-400 to-gray-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl text-white">🚀</span>
                   </div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{service}</h3>
@@ -386,10 +386,10 @@ const Index = () => {
       <section id="contact" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-slate-600 to-gray-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
               Get In Touch
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-gray-500 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               I'm always open to discussing new opportunities and interesting projects.
             </p>
@@ -400,25 +400,25 @@ const Index = () => {
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-slate-500" />
+                  <Mail className="w-5 h-5 text-[#bd1e51]" />
                   <span className="text-gray-700 dark:text-gray-300">anshumala.22310480@viit.ac.in</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-slate-500" />
+                  <Phone className="w-5 h-5 text-[#bd1e51]" />
                   <span className="text-gray-700 dark:text-gray-300">+91 8263886589</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Github className="w-5 h-5 text-slate-500" />
+                  <Github className="w-5 h-5 text-[#bd1e51]" />
                   <span className="text-gray-700 dark:text-gray-300">GitHub Profile</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Linkedin className="w-5 h-5 text-slate-500" />
+                  <Linkedin className="w-5 h-5 text-[#bd1e51]" />
                   <span className="text-gray-700 dark:text-gray-300">LinkedIn Profile</span>
                 </div>
               </div>
             </div>
             
-            <Card>
+            <Card className="border-t-4 border-t-[#f1b814]">
               <CardHeader>
                 <CardTitle className="text-gray-900 dark:text-white">Send a Message</CardTitle>
               </CardHeader>
@@ -428,24 +428,24 @@ const Index = () => {
                     <input 
                       type="text" 
                       placeholder="Your Name"
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 dark:bg-gray-800 dark:text-white"
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
                     />
                   </div>
                   <div>
                     <input 
                       type="email" 
                       placeholder="Your Email"
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 dark:bg-gray-800 dark:text-white"
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
                     />
                   </div>
                   <div>
                     <textarea 
                       rows={5}
                       placeholder="Your Message"
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-400 dark:bg-gray-800 dark:text-white"
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
                     ></textarea>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-slate-500 to-gray-600 hover:from-slate-600 hover:to-gray-700 text-white py-3 rounded-lg">
+                  <Button className="w-full bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white py-3 rounded-lg">
                     Send Message
                   </Button>
                 </form>
@@ -456,9 +456,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 dark:bg-black text-white py-8">
+      <footer className="bg-[#490b3d] dark:bg-black text-white py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400">
+          <p className="text-gray-300">
             © 2024 Anshumala Vijay Pandit. Built with ❤️ using React & Tailwind CSS.
           </p>
         </div>
