@@ -22,6 +22,11 @@ const Index = () => {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init('aqQ8b3qPpmn-BKfHW');
+  }, []);
+
   const toggleDarkMode = () => setDarkMode(!darkMode);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -45,19 +50,24 @@ const Index = () => {
       from_name: formData.get('name'),
       from_email: formData.get('email'),
       message: formData.get('message'),
+      to_name: 'Anshumala', // Your name
     };
 
+    console.log('Sending email with params:', templateParams);
+
     try {
-      await emailjs.send(
+      const result = await emailjs.send(
         'service_jysi93s',
         'template_ymkmkha',
         templateParams,
         'aqQ8b3qPpmn-BKfHW'
       );
       
+      console.log('EmailJS result:', result);
+      
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Message sent successfully! 🎉",
+        description: "Thank you for reaching out! Your message has been received and our team will connect with you soon. We typically respond within 24 hours.",
       });
       
       form.reset();
@@ -65,7 +75,7 @@ const Index = () => {
       console.error('EmailJS error:', error);
       toast({
         title: "Failed to send message",
-        description: "Please try again or contact me directly via email.",
+        description: "There was an issue sending your message. Please try again or contact me directly via email at anshumala.22310480@viit.ac.in",
         variant: "destructive",
       });
     } finally {
