@@ -1,16 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Download, Mail, Phone, Github, Linkedin, ExternalLink, Menu, X, Code, Database, Palette, Globe, Server, Smartphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -18,100 +15,72 @@ const Index = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
-
   const toggleDarkMode = () => setDarkMode(!darkMode);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
       setActiveSection(sectionId);
       setIsMenuOpen(false);
     }
   };
-
-  const skills = [
-    {
-      name: 'Java',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
-    },
-    {
-      name: 'JavaScript',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
-    },
-    {
-      name: 'Python',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
-    },
-    {
-      name: 'React.js',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
-    },
-    {
-      name: 'HTML5',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
-    },
-    {
-      name: 'CSS3',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'
-    },
-    {
-      name: 'Tailwind CSS',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg'
-    },
-    {
-      name: 'Bootstrap',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'
-    },
-    {
-      name: 'Git',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'
-    },
-    {
-      name: 'GitHub',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
-    },
-    {
-      name: 'Figma',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'
-    },
-    {
-      name: 'Canva',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg'
-    }
-  ];
-
-  const projects = [
-    {
-      title: 'Shortest Path Finder',
-      description: 'Visual tool showing Dijkstra & A* algorithm performance using Java AWT.',
-      tech: ['Java', 'AWT', 'Algorithms'],
-      github: '#'
-    },
-    {
-      title: 'Simon Says Game',
-      description: 'Fun memory game built with vanilla JavaScript for enhanced user interaction.',
-      tech: ['HTML', 'CSS', 'JavaScript'],
-      github: '#'
-    },
-    {
-      title: 'Truth Table Generator',
-      description: 'Web application that creates truth tables from logical expressions.',
-      tech: ['React.js', 'JavaScript', 'Logic'],
-      github: '#'
-    }
-  ];
-
-  const services = [
-    'UI/UX Design (Figma, Canva)',
-    'Frontend Development (React.js)',
-    'Full Website Development',
-    'Power BI Dashboard Creation',
-    'Documentation & Professional PPT Design'
-  ];
-
-  return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
+  const skills = [{
+    name: 'Java',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+  }, {
+    name: 'JavaScript',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
+  }, {
+    name: 'Python',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
+  }, {
+    name: 'React.js',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+  }, {
+    name: 'HTML5',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
+  }, {
+    name: 'CSS3',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'
+  }, {
+    name: 'Tailwind CSS',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg'
+  }, {
+    name: 'Bootstrap',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'
+  }, {
+    name: 'Git',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg'
+  }, {
+    name: 'GitHub',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+  }, {
+    name: 'Figma',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'
+  }, {
+    name: 'Canva',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg'
+  }];
+  const projects = [{
+    title: 'Shortest Path Finder',
+    description: 'Visual tool showing Dijkstra & A* algorithm performance using Java AWT.',
+    tech: ['Java', 'AWT', 'Algorithms'],
+    github: '#'
+  }, {
+    title: 'Simon Says Game',
+    description: 'Fun memory game built with vanilla JavaScript for enhanced user interaction.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: '#'
+  }, {
+    title: 'Truth Table Generator',
+    description: 'Web application that creates truth tables from logical expressions.',
+    tech: ['React.js', 'JavaScript', 'Logic'],
+    github: '#'
+  }];
+  const services = ['UI/UX Design (Figma, Canva)', 'Frontend Development (React.js)', 'Full Website Development', 'Power BI Dashboard Creation', 'Documentation & Professional PPT Design'];
+  return <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -122,38 +91,18 @@ const Index = () => {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                    activeSection === item.toLowerCase()
-                      ? 'text-[#bd1e51] dark:text-[#f1b814]'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814]'
-                  }`}
-                >
+              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.toLowerCase() ? 'text-[#bd1e51] dark:text-[#f1b814]' : 'text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814]'}`}>
                   {item}
-                </button>
-              ))}
+                </button>)}
             </div>
 
             <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDarkMode}
-                className="p-2"
-              >
+              <Button variant="ghost" size="sm" onClick={toggleDarkMode} className="p-2">
                 {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
               
               {/* Mobile menu button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="md:hidden p-2"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
+              <Button variant="ghost" size="sm" className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
@@ -161,21 +110,13 @@ const Index = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+        {isMenuOpen && <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814] w-full text-left"
-                >
+              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814] w-full text-left">
                   {item}
-                </button>
-              ))}
+                </button>)}
             </div>
-          </div>
-        )}
+          </div>}
       </nav>
 
       {/* Hero Section */}
@@ -193,17 +134,10 @@ const Index = () => {
                 Building beautiful user experiences with code & creativity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button 
-                  onClick={() => scrollToSection('projects')}
-                  className="bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
-                >
+                <Button onClick={() => scrollToSection('projects')} className="bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
                   View My Work
                 </Button>
-                <Button 
-                  variant="outline" 
-                  onClick={() => scrollToSection('contact')}
-                  className="border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white px-8 py-3 rounded-full transition-all duration-300"
-                >
+                <Button variant="outline" onClick={() => scrollToSection('contact')} className="border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white px-8 py-3 rounded-full transition-all duration-300">
                   Get In Touch
                 </Button>
               </div>
@@ -212,15 +146,10 @@ const Index = () => {
               <div className="relative">
                 <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#490b3d] to-[#bd1e51] p-1 animate-pulse">
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face" 
-                      alt="Anshumala Vijay Pandit"
-                      className="w-full h-full object-cover rounded-full"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.parentElement!.innerHTML = '<div class="text-6xl">👩‍💻</div>';
-                      }}
-                    />
+                    <img alt="Anshumala Vijay Pandit" className="w-full h-full object-cover rounded-full" onError={e => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<div class="text-6xl">👩‍💻</div>';
+                  }} src="/lovable-uploads/0060bb4e-86f7-47e3-960d-96965c199461.jpg" />
                   </div>
                 </div>
               </div>
@@ -269,16 +198,14 @@ const Index = () => {
             <div>
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Core Strengths</h3>
               <div className="grid grid-cols-2 gap-4">
-                {['Initiative', 'Documentation', 'Design', 'Communication'].map((skill, index) => (
-                  <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow duration-300">
+                {['Initiative', 'Documentation', 'Design', 'Communication'].map((skill, index) => <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="pt-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-full flex items-center justify-center mx-auto mb-3">
                         <span className="text-white font-bold">{skill[0]}</span>
                       </div>
                       <p className="font-medium text-gray-900 dark:text-white">{skill}</p>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
           </div>
@@ -299,27 +226,17 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 max-w-6xl mx-auto">
-            {skills.map((skill, index) => (
-              <div 
-                key={index} 
-                className="flex flex-col items-center group hover:scale-110 transition-all duration-300 cursor-pointer"
-              >
+            {skills.map((skill, index) => <div key={index} className="flex flex-col items-center group hover:scale-110 transition-all duration-300 cursor-pointer">
                 <div className="w-20 h-20 bg-white dark:bg-gray-900 rounded-2xl shadow-lg flex items-center justify-center mb-3 group-hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-[#bd1e51]">
-                  <img 
-                    src={skill.logo} 
-                    alt={skill.name}
-                    className="w-12 h-12 object-contain"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `<div class="w-12 h-12 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-lg flex items-center justify-center text-white font-bold text-lg">${skill.name[0]}</div>`;
-                    }}
-                  />
+                  <img src={skill.logo} alt={skill.name} className="w-12 h-12 object-contain" onError={e => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement!.innerHTML = `<div class="w-12 h-12 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-lg flex items-center justify-center text-white font-bold text-lg">${skill.name[0]}</div>`;
+              }} />
                 </div>
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center group-hover:text-[#bd1e51] dark:group-hover:text-[#f1b814] transition-colors duration-300">
                   {skill.name}
                 </span>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -335,8 +252,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#bd1e51]">
+            {projects.map((project, index) => <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#bd1e51]">
                 <CardHeader>
                   <CardTitle className="text-gray-900 dark:text-white">{project.title}</CardTitle>
                   <CardDescription className="text-gray-600 dark:text-gray-400">
@@ -345,22 +261,16 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary" className="bg-[#490b3d]/10 text-[#490b3d] dark:bg-[#f1b814]/20 dark:text-[#f1b814]">
+                    {project.tech.map((tech, techIndex) => <Badge key={techIndex} variant="secondary" className="bg-[#490b3d]/10 text-[#490b3d] dark:bg-[#f1b814]/20 dark:text-[#f1b814]">
                         {tech}
-                      </Badge>
-                    ))}
+                      </Badge>)}
                   </div>
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white"
-                  >
+                  <Button variant="outline" className="w-full border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white">
                     <Github className="w-4 h-4 mr-2" />
                     View Code
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -376,16 +286,14 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#f1b814]">
+            {services.map((service, index) => <Card key={index} className="text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#f1b814]">
                 <CardContent className="pt-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl text-white">🚀</span>
                   </div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{service}</h3>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -433,25 +341,13 @@ const Index = () => {
               <CardContent>
                 <form className="space-y-4">
                   <div>
-                    <input 
-                      type="text" 
-                      placeholder="Your Name"
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
-                    />
+                    <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white" />
                   </div>
                   <div>
-                    <input 
-                      type="email" 
-                      placeholder="Your Email"
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
-                    />
+                    <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white" />
                   </div>
                   <div>
-                    <textarea 
-                      rows={5}
-                      placeholder="Your Message"
-                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
-                    ></textarea>
+                    <textarea rows={5} placeholder="Your Message" className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"></textarea>
                   </div>
                   <Button className="w-full bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white py-3 rounded-lg">
                     Send Message
@@ -471,8 +367,6 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
