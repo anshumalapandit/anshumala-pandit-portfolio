@@ -4,11 +4,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -16,6 +21,7 @@ const Index = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
+
   const toggleDarkMode = () => setDarkMode(!darkMode);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -27,6 +33,46 @@ const Index = () => {
       setIsMenuOpen(false);
     }
   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    const templateParams = {
+      from_name: formData.get('name'),
+      from_email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    try {
+      await emailjs.send(
+        'service_jysi93s',
+        'template_ymkmkha',
+        templateParams,
+        'aqQ8b3qPpmn-BKfHW'
+      );
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const skills = [{
     name: 'Java',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
@@ -64,6 +110,7 @@ const Index = () => {
     name: 'Canva',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg'
   }];
+
   const projects = [{
     title: 'Shortest Path Finder',
     description: 'Visual tool showing Dijkstra & A* algorithm performance using Java AWT.',
@@ -80,7 +127,9 @@ const Index = () => {
     tech: ['React.js', 'JavaScript', 'Logic'],
     github: '#'
   }];
+
   const services = ['UI/UX Design (Figma, Canva)', 'Frontend Development (React.js)', 'Full Website Development', 'Power BI Dashboard Creation', 'Documentation & Professional PPT Design'];
+
   return <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
@@ -340,18 +389,40 @@ const Index = () => {
                 <CardTitle className="text-gray-900 dark:text-white">Send a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white" />
+                    <input 
+                      type="text" 
+                      name="name"
+                      placeholder="Your Name" 
+                      required
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white" 
+                    />
                   </div>
                   <div>
-                    <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white" />
+                    <input 
+                      type="email" 
+                      name="email"
+                      placeholder="Your Email" 
+                      required
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white" 
+                    />
                   </div>
                   <div>
-                    <textarea rows={5} placeholder="Your Message" className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"></textarea>
+                    <textarea 
+                      rows={5} 
+                      name="message"
+                      placeholder="Your Message" 
+                      required
+                      className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#bd1e51] dark:bg-gray-800 dark:text-white"
+                    ></textarea>
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white py-3 rounded-lg">
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-[#490b3d] to-[#bd1e51] hover:from-[#bd1e51] hover:to-[#f1b814] text-white py-3 rounded-lg disabled:opacity-50"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
