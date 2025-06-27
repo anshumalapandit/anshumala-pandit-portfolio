@@ -211,8 +211,16 @@ const Index = () => {
             <div className="flex justify-center">
               <div className="relative">
                 <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#490b3d] to-[#bd1e51] p-1 animate-pulse">
-                  <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                    <div className="text-6xl">👩‍💻</div>
+                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face" 
+                      alt="Anshumala Vijay Pandit"
+                      className="w-full h-full object-cover rounded-full"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = '<div class="text-6xl">👩‍💻</div>';
+                      }}
+                    />
                   </div>
                 </div>
               </div>
