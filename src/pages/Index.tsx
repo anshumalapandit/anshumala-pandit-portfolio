@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -144,12 +145,12 @@ const Index = () => {
             </div>
             <div className="flex justify-center">
               <div className="relative">
-                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#490b3d] to-[#bd1e51] p-1 animate-pulse">
+                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#490b3d] to-[#bd1e51] p-1">
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
                     <img alt="Anshumala Vijay Pandit" className="w-full h-full object-cover rounded-full" onError={e => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.parentElement!.innerHTML = '<div class="text-6xl">👩‍💻</div>';
-                  }} src="/lovable-uploads/0060bb4e-86f7-47e3-960d-96965c199461.jpg" />
+                  }} src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" />
                   </div>
                 </div>
               </div>
@@ -369,4 +370,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
