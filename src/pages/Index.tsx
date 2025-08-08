@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
+
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const Index = () => {
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.toggle('dark', darkMode);
     } else {
       document.documentElement.classList.remove('dark');
     }
@@ -122,36 +123,56 @@ const Index = () => {
   }];
 
   const projects = [{
-    title: 'Shortest Path Finder',
-    description: 'Visual tool showing Dijkstra & A* algorithm performance using Java AWT.',
-    tech: ['Java', 'AWT', 'Algorithms'],
-    github: '#'
+    title: 'Expense Tracker',
+  description: 'A full stack expense tracker application that helps users manage and monitor their daily spending. Features include user authentication, adding and categorizing expenses, real-time balance updates, and insightful analytics dashboards.',
+  tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+  image: '/images/expensetracker.png',
+  github: 'https://github.com/anshumalapandit',
+  // Live: 'https://your-expensetracker-live-link.com'
   }, {
-    title: 'Simon Says Game',
+    title: 'School Website',
+    description: 'A modern and responsive website designed for schools to showcase their achievements, events, and important information. Features include event galleries, announcements, and easy contact options for parents and students.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    image: '/images/schoolwebsite.png',
+    github: 'https://github.com/anshumalapandit',
+    Live:'https://anshumalapandit.github.io/schoolwebsite/'
+  }, {
+    title: 'Club Connect',
+    description: 'Web application that connects clubs altogether .',
+    tech: ['React.js', 'JavaScript', 'Tailwind CSS',' Node.js', 'Express.js', 'MongoDB'],
+    image: '/images/club_connect.png',
+    github: 'https://github.com/anshumalapandit'
+  },{
+     title: 'Simon Says Game',
     description: 'Fun memory game built with vanilla JavaScript for enhanced user interaction.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    github: '#'
-  }, {
-    title: 'Truth Table Generator',
-    description: 'Web application that creates truth tables from logical expressions.',
-    tech: ['React.js', 'JavaScript', 'Logic'],
-    github: '#'
-  }];
+    image: '/images/html.png',
+    github: 'https://github.com/anshumalapandit'
+  },
+  {
+  title: 'Shortest Path Finder',
+    description: 'Visual tool showing Dijkstra & A* algorithm performance using Java AWT.',
+    tech: ['Java', 'AWT', 'Dikstra Algorithms & A* algorithms'],
+    image: '/images/shortest_path.png',
+    github: 'https://github.com/anshumalapandit'
+}
+];
 
   const services = ['UI/UX Design (Figma, Canva)', 'Frontend Development (React.js)', 'Full Website Development', 'Power BI Dashboard Creation', 'Documentation & Professional PPT Design'];
 
   return <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
+    
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
-              Anshumala
+            <div className="font-bold text-xl bg-gradient-to-r from-[#e5f414] to-[#bd1e51] bg-clip-text text-transparent">
+              Anshumala Pandit
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.toLowerCase() ? 'text-[#bd1e51] dark:text-[#f1b814]' : 'text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814]'}`}>
+              {['Home', 'About', 'Skills', 'Projects','Achievements', 'Services', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${activeSection === item.toLowerCase() ? 'text-[#bd1e51] dark:text-[#f1b814]' : 'text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814]'}`}>
                   {item}
                 </button>)}
             </div>
@@ -172,7 +193,7 @@ const Index = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814] w-full text-left">
+              {['Home', 'About', 'Skills', 'Projects','Achievements', 'Services', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-[#bd1e51] dark:hover:text-[#f1b814] w-full text-left">
                   {item}
                 </button>)}
             </div>
@@ -184,13 +205,13 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#490b3d] via-[#bd1e51] to-[#f1b814] bg-clip-text text-transparent animate-fade-in">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#490b3d] via-[#bd1e51] to-[#f1b814] bg-clip-text text-transparent dark:bg-none dark:text-yellow-400">
                 Anshumala Vijay Pandit
               </h1>
-              <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4">
+              <h2 className="text-xl md:text-2xl text-gray-600 dark:text-white mb-4">
                 Aspiring Software Developer
               </h2>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
+              <p className="text-lg text-gray-700 dark:text-gray-200 mb-8 max-w-2xl">
                 Building beautiful user experiences with code & creativity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -222,7 +243,7 @@ const Index = () => {
       <section id="about" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent dark:bg-none dark:text-white">
               About Me
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
@@ -230,12 +251,14 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                I'm a third-year Computer Engineering student at VIIT Pune with a passion for tech, design, and development. 
-                I specialize in Java programming, React.js frontend development, and building intuitive dashboards.
+              <p className="text-lg text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
+                 I’m a Computer Engineering student with a solid foundation in Java and Data Structures & Algorithms, 
+    along with hands-on expertise in the MERN stack. I enjoy solving challenging problems and transforming ideas into efficient, user-friendly applications.
               </p>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-                My goal is to work at a top-tier MERN-based company and make an impact with clean, user-centric design.
+              <p className="text-lg text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
+                {/* My goal is to work at a top-tier MERN-based company and make an impact with clean, user-centric design. */}
+                 I’m goal-oriented and highly adaptable, thriving in environments where learning and innovation never stop. 
+    My aim is to build impactful products at leading tech companies, combining clean code, scalability, and a deep focus on user experience.
               </p>
               
               <div className="mb-8">
@@ -244,7 +267,7 @@ const Index = () => {
                   <CardContent className="pt-6">
                     <h4 className="font-semibold text-gray-900 dark:text-white">Computer Engineering</h4>
                     <p className="text-gray-600 dark:text-gray-400">Vishwakarma Institute of Information Technology, Pune</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-500">2022 - Present</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500">2025 - Present</p>
                   </CardContent>
                 </Card>
               </div>
@@ -258,7 +281,7 @@ const Index = () => {
             <div>
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Core Strengths</h3>
               <div className="grid grid-cols-2 gap-4">
-                {['Initiative', 'Documentation', 'Design', 'Communication'].map((skill, index) => <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow duration-300">
+                {['Problem-Solving', 'Goal Oriented', 'Team Person', 'Communication'].map((skill, index) => <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="pt-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#490b3d] to-[#bd1e51] rounded-full flex items-center justify-center mx-auto mb-3">
                         <span className="text-white font-bold">{skill[0]}</span>
@@ -276,11 +299,11 @@ const Index = () => {
       <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent dark:bg-none dark:text-white">
               Skills & Technologies
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-200 max-w-2xl mx-auto">
               Technologies and tools I work with
             </p>
           </div>
@@ -303,43 +326,106 @@ const Index = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
-              Featured Projects
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent dark:bg-none dark:text-white">
+        My Projects
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
+    </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <Card key={index} className="rounded-xl overflow-hidden shadow-lg transition-transform transform hover:-translate-y-1 hover:shadow-xl bg-white dark:bg-gray-900">
+          <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+          <div className="p-6">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.tech.map((tech, techIndex) => (
+                <span key={techIndex} className="bg-violet-100 text-violet-700 text-xs font-medium px-2.5 py-1 rounded-full">{tech}</span>
+              ))}
+            </div>
+            <div className="flex items-center gap-4 text-sm">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-gray-700 dark:text-gray-200 hover:underline">
+                <span>🔗</span> View Code
+              </a>
+              {project.Live && (
+                <a href={project.Live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-gray-700 dark:text-gray-200 hover:underline">
+                  <span>🌐</span> Live
+                </a>
+              )}
+            </div>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-t-[#bd1e51]">
-                <CardHeader>
-                  <CardTitle className="text-gray-900 dark:text-white">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-600 dark:text-gray-400">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => <Badge key={techIndex} variant="secondary" className="bg-[#490b3d]/10 text-[#490b3d] dark:bg-[#f1b814]/20 dark:text-[#f1b814]">
-                        {tech}
-                      </Badge>)}
-                  </div>
-                  <Button variant="outline" className="w-full border-[#bd1e51] text-[#bd1e51] hover:bg-[#bd1e51] hover:text-white">
-                    <Github className="w-4 h-4 mr-2" />
-                    View Code
-                  </Button>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="py-20 bg-gray-50 dark:bg-gray-800">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent dark:bg-none dark:text-white">
+        Achievements
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
+    </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Example item */}
+       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <div className="text-4xl mb-4 text-purple-500">📚</div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Amazon Future Engineer Scholar</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+          Selected as an Amazon Future Engineer Scholar for excellence in academics and commitment to technology.
+        </p>
+      </div>
+      {/* Add more as needed */}
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <div className="text-4xl mb-4 text-purple-500">🎓</div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Katalyst India Scholar</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+          Recognized as a Katalyst Scholar for leadership, academic performance, and personality development.
+        </p>
+      </div>
+       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <div className="text-4xl mb-4 text-purple-500">🏆</div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">J.P. Morgan Generation Hack Winner</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+          Winner of the prestigious Generation Tech Hackathon by J.P. Morgan, showcasing innovative tech solutions.
+        </p>
+      </div>
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+  <div className="text-4xl mb-4 text-purple-500">🌍</div>
+  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Aspire Leaders Program</h3>
+  <p className="text-gray-600 dark:text-gray-300">
+    Selected for the Harvard-founded Aspire Leaders Program, a global platform for emerging youth leaders from underserved communities.
+  </p>
+</div>
+
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <div className="text-4xl mb-4 text-purple-500">🎯</div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">FLY-Scholar Program</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+          Successfully completed the FLY-Scholar program by The Competitiveness Mindset Institute, USA, developing key non-cognitive skills.
+        </p>
+      </div>
+       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <div className="text-4xl mb-4 text-purple-500">👥</div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Mentorship Programs</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+          Selected as a mentee in prestigious programs: Navgurukul and FLY-Scholar program.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent dark:bg-none dark:text-white">
               Services
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
@@ -362,11 +448,11 @@ const Index = () => {
       <section id="contact" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#490b3d] to-[#bd1e51] bg-clip-text text-transparent dark:bg-none dark:text-white">
               Get In Touch
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#bd1e51] to-[#f1b814] mx-auto mb-8"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-200 max-w-2xl mx-auto">
               I'm always open to discussing new opportunities and interesting projects.
             </p>
           </div>
@@ -385,11 +471,27 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Github className="w-5 h-5 text-[#bd1e51]" />
-                  <span className="text-gray-700 dark:text-gray-300">GitHub Profile</span>
+                  {/* <span className="text-gray-700 dark:text-gray-300">GitHub Profile</span> */}
+                   <a
+    href="https://github.com/anshumalapandit"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-700 dark:text-gray-300 hover:underline"
+  >
+    GitHub Profile
+  </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Linkedin className="w-5 h-5 text-[#bd1e51]" />
-                  <span className="text-gray-700 dark:text-gray-300">LinkedIn Profile</span>
+                  {/* <span className="text-gray-700 dark:text-gray-300">LinkedIn Profile</span> */}
+                   <a
+    href="https://www.linkedin.com/in/anshumala-pandit-82285328a/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-700 dark:text-gray-300 hover:underline"
+  >
+    LinkedIn Profile
+  </a>
                 </div>
               </div>
             </div>
@@ -445,7 +547,7 @@ const Index = () => {
       <footer className="bg-[#490b3d] dark:bg-black text-white py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-300">
-            © 2024 Anshumala Vijay Pandit. Built with ❤️ using React & Tailwind CSS.
+            © 2025 Anshumala Vijay Pandit. All rights reserved.
           </p>
         </div>
       </footer>

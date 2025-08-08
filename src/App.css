@@ -4,6 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+.dark {
+  --bg-color: #111827; /* dark gray */
+  --text-color: white;
+  --highlight-color: #facc15; /* yellow */
+}
+
 
 .logo {
   height: 6em;
