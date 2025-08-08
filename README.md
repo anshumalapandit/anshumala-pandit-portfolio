@@ -9,7 +9,7 @@ This is my personal portfolio project built with:
 - Vite
 
 ## Live Preview
-[Click here to view the site](http://localhost:8080/)
+[Click here to view the site](https://anshumala-pandit-portfolio.vercel.app/)
 
 ## Features
 - Dark & Light Mode
