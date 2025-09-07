@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 
 const Index = () => {
@@ -120,6 +121,24 @@ const Index = () => {
   }, {
     name: 'Canva',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg'
+  },{
+    name: 'Node.js',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
+  }, {
+    name: 'Express.js',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
+  }, {  
+    name: 'MongoDB',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
+  }, {  
+    name: 'Next.js',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
+  }, {
+    name: 'Post Man',
+    logo: 'https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg'
+  },{
+    name: 'React Native',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
   }];
 
   const projects = [{
@@ -127,34 +146,45 @@ const Index = () => {
   description: 'A full stack expense tracker application that helps users manage and monitor their daily spending. Features include user authentication, adding and categorizing expenses, real-time balance updates, and insightful analytics dashboards.',
   tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
   image: '/images/expensetracker.png',
-  github: 'https://github.com/anshumalapandit',
+  github: 'https://github.com/anshumalapandit/Expense-Tracker-Project',
   // Live: 'https://your-expensetracker-live-link.com'
   }, {
     title: 'School Website',
     description: 'A modern and responsive website designed for schools to showcase their achievements, events, and important information. Features include event galleries, announcements, and easy contact options for parents and students.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     image: '/images/schoolwebsite.png',
-    github: 'https://github.com/anshumalapandit',
+    github: 'https://github.com/anshumalapandit/schoolwebsite',
     Live:'https://anshumalapandit.github.io/schoolwebsite/'
-  }, {
-    title: 'Club Connect',
-    description: 'Web application that connects clubs altogether .',
-    tech: ['React.js', 'JavaScript', 'Tailwind CSS',' Node.js', 'Express.js', 'MongoDB'],
-    image: '/images/club_connect.png',
-    github: 'https://github.com/anshumalapandit'
   },{
      title: 'Simon Says Game',
     description: 'Fun memory game built with vanilla JavaScript for enhanced user interaction.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     image: '/images/html.png',
-    github: 'https://github.com/anshumalapandit'
+    github: 'https://github.com/anshumalapandit/SimonSaysGame',
+    Live:'https://anshumalapandit.github.io/SimonSaysGame/'
   },
-  {
+{
+  title: 'Sahayak - A Helping Hand',
+    description: 'A web application that connects volunteers with physically abled people in need of assistance, facilitating community support,aid,exam,and for basic needs.',
+    tech:['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS','Dialogflow'],
+    image: '/images/sahayak2.png',
+    github: 'https://github.com/anshumalapandit/Sahayak-Helping-Hand-project'
+},
+{
+  title: 'AI-Powered Nutrition and Fitness Recommendation System',
+    // description: 'A flask-based web application that provides personalized nutrition and fitness recommendations using Gemini APi to help users achieve their health goals effectively.',
+    description: 'A Flask web app using Grok AI give personalized nutrition and fitness advice. Users enter details like age, height, weight, activity, allergies, and location. ChefAi then suggests top restaurants, meal plans, and workouts tailored to their goals.',
+    tech: ['Python (Flask)', 'HTML5', 'Tailwind CSS', 'Bootstrap', 'LLaMA 3.3 (Meta)','Grok API'],
+    image: '/images/fitness.jpg',
+    github: 'https://github.com/anshumalapandit/Chef-AI-Your-Smart-Food-Fitness-Recommender-Project',
+    Live: 'https://chef-ai-your-smart-food-fitness.onrender.com/'
+},
+ {
   title: 'Shortest Path Finder',
-    description: 'Visual tool showing Dijkstra & A* algorithm performance using Java AWT.',
-    tech: ['Java', 'AWT', 'Dikstra Algorithms & A* algorithms'],
+    description: 'A Java AWT-based visualization tool that demonstrates Dijkstra and A* algorithms. Users can set custom start and end nodes to see how each algorithm explores the graph and finds the optimal path.',
+    tech: ['Java', 'AWT', 'Dikstra Algorithms',' A* algorithms'],
     image: '/images/shortest_path.png',
-    github: 'https://github.com/anshumalapandit'
+    github: 'https://github.com/anshumalapandit/Shortest-Path-Finder-Visualization'
 }
 ];
 
@@ -223,7 +253,8 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex justify-center">
+            {/* Hero image */} 
+             <div className="flex justify-center">
               <div className="relative">
                 <div className="w-80 h-80 rounded-full bg-gradient-to-br from-[#490b3d] to-[#bd1e51] p-1">
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
@@ -235,6 +266,11 @@ const Index = () => {
                 </div>
               </div>
             </div>
+            {/* new hero image */}
+            {/* // Inside your JSX return in hero section
+<div className="flex right-0 justify-center md:justify-end">
+  <HeroImage />
+</div> */}
           </div>
         </div>
       </section>
@@ -252,12 +288,12 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
-                 I’m a Computer Engineering student with a solid foundation in Java and Data Structures & Algorithms, 
+                 I am a Computer Engineering student with a solid foundation in Java and Data Structures & Algorithms, 
     along with hands-on expertise in the MERN stack. I enjoy solving challenging problems and transforming ideas into efficient, user-friendly applications.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
                 {/* My goal is to work at a top-tier MERN-based company and make an impact with clean, user-centric design. */}
-                 I’m goal-oriented and highly adaptable, thriving in environments where learning and innovation never stop. 
+                 I am goal-oriented and highly adaptable, thriving in environments where learning and innovation never stop. 
     My aim is to build impactful products at leading tech companies, combining clean code, scalability, and a deep focus on user experience.
               </p>
               
@@ -323,6 +359,32 @@ const Index = () => {
           </div>
         </div>
       </section>
+      {/* <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 max-w-6xl mx-auto">
+  {skills.map((skill, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, scale: 0.7, y: 32 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ type: "spring", stiffness: 130, damping: 18, delay: index * 0.06 }}
+      viewport={{ once: true }}
+      whileHover={{
+        scale: 1.12,
+        boxShadow: "0 6px 18px #bd1e51",
+        rotate: 2,
+      }}
+      className="flex flex-col items-center group cursor-pointer"
+    >
+      <div className="w-20 h-20 bg-white dark:bg-gray-900 rounded-2xl shadow-lg flex items-center justify-center mb-3 border border-gray-100 dark:border-gray-700 group-hover:border-[#bd1e51]">
+        <img src={skill.logo} alt={skill.name} className="w-12 h-12 object-contain" />
+      </div>
+      <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center group-hover:text-[#bd1e51] dark:group-hover:text-[#f1b814] transition-colors duration-300">
+        {skill.name}
+      </span>
+    </motion.div>
+  ))}
+</div>
+</section> */}
 
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-white dark:bg-gray-900">
@@ -390,9 +452,16 @@ const Index = () => {
       </div>
        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
         <div className="text-4xl mb-4 text-purple-500">🏆</div>
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">J.P. Morgan Generation Hack Winner</h3>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">J.P. MorganChase Generation Tech Hackathon Winner</h3>
         <p className="text-gray-600 dark:text-gray-300">
           Winner of the prestigious Generation Tech Hackathon by J.P. Morgan, showcasing innovative tech solutions.
+        </p>
+      </div>
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <div className="text-4xl mb-4 text-purple-500">🏅</div>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Participated in Mastercard Code For Change Hackathon 2025</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+         Advanced to Round 2 as one of the Top 200 individuals selected from 2000+ entries for the Hackathon.
         </p>
       </div>
       <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
