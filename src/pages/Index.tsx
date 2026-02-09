@@ -305,8 +305,9 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 z-50 border-b border-gray-200 dark:border-gray-700 shadow-md">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16 md:h-20 py-2 sm:py-3">
-            <div className="font-bold text-base sm:text-lg md:text-xl bg-gradient-to-r from-[#e5f414] to-[#bd1e51] bg-clip-text text-transparent truncate flex-shrink-0">
-              Anshumala
+            <div className="font-bold text-xs sm:text-sm md:text-lg bg-gradient-to-r from-[#e5f414] to-[#bd1e51] bg-clip-text text-transparent truncate flex-shrink-0">
+              <span className="hidden sm:inline">Anshumala Pandit</span>
+              <span className="sm:hidden">Anshumala</span>
             </div>
             
             <div className="hidden md:flex space-x-4 lg:space-x-6">
@@ -382,7 +383,7 @@ const Index = () => {
                   <p className="text-xs sm:text-sm md:text-lg lg:text-2xl font-semibold uppercase tracking-wider bg-gradient-to-r from-[#bd1e51] to-[#f1b814] bg-clip-text text-transparent dark:bg-none dark:text-white">
                     I AM
                   </p>
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-[#490b3d] via-[#bd1e51] to-[#f1b814] bg-clip-text text-transparent dark:bg-none dark:text-white mb-2 leading-tight min-h-[50px] sm:min-h-[60px] md:min-h-[80px]">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-[#490b3d] via-[#bd1e51] to-[#f1b814] bg-clip-text text-transparent dark:bg-none dark:text-white mb-2 leading-tight min-h-[60px] sm:min-h-[80px] md:min-h-[100px]">
                     {displayedText}
                     <span className={`typing-cursor ${isTypingComplete ? 'complete' : ''} bg-gradient-to-r from-[#490b3d] via-[#bd1e51] to-[#f1b814]`}></span>
                   </h1>
@@ -401,6 +402,10 @@ const Index = () => {
                     <span className="text-[#bd1e51] dark:text-[#f1b814] font-bold mt-0.5">✓</span>
                     <p>Full-Stack MERN Developer with hands-on project experience</p>
                   </div>
+                  <div className="flex sm:hidden items-start gap-2">
+                    <span className="text-[#bd1e51] dark:text-[#f1b814] font-bold mt-0.5">✓</span>
+                    <p>Strong DSA & Java fundamentals</p>
+                  </div>
                   <div className="hidden sm:flex items-start gap-2">
                     <span className="text-[#bd1e51] dark:text-[#f1b814] font-bold mt-0.5">✓</span>
                     <p>Strong foundation in Java, Data Structures & Object-Oriented Programming</p>
@@ -408,10 +413,6 @@ const Index = () => {
                   <div className="hidden sm:flex items-start gap-2">
                     <span className="text-[#bd1e51] dark:text-[#f1b814] font-bold mt-0.5">✓</span>
                     <p>Experience working on real-world applications and hackathons</p>
-                  </div>
-                  <div className="sm:hidden flex items-start gap-2">
-                    <span className="text-[#bd1e51] dark:text-[#f1b814] font-bold mt-0.5">✓</span>
-                    <p>Full-Stack MERN Developer with real-world project experience</p>
                   </div>
                 </div>
               </motion.div>
